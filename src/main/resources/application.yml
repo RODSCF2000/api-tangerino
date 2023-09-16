@@ -1,0 +1,37 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/db-tangerino?verifyServerCertificate=false&useSSL=false&requireSSL=false&useTimezone=true&serverTimezone=America/Sao_Paulo
+        username: postgres
+        password: root
+        hikari:
+            max-lifetime: 3000000
+    profiles:
+        active: "@spring.profiles.active@"
+    application:
+        name: api-madden
+    jpa:
+        defer-datasource-initialization: true
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                proc:
+                    "[param_null_passing]": true
+    mvc:
+      throw-exception-if-no-handler-found: true
+      static-path-pattern: /static
+jwt:
+    secret: A+X;fTJP&Pd,TD9dwVq(hCDPsHX,ya^asdasd<wsD_UK7L+@=S;{'CydP]{v@}G'b>et;yz$*\yL5S8EJN:%P:X%H9>#nYLrX}@\s?CQcpspH,2emzBc!Q[V'AYasdf~uzF8WR~AUrMzxp/V$9([S9Xsdzj/CH('#]B_Hc+%fGhe27YBa;^j4\Xk=Ju"Ap~_&<L;=!Z;!,2UP;!hF3P]j85#*`&T]/kB/W^6$v~u6qspejL>kY^f)sy4:qTq_Ec!-z!@aAp~sLKGU>$
+    expiration: 86400000
+logging:
+  level:
+    org:
+      hibernate:
+        persister:
+          entity: ERROR
+server:
+    port: 3001
+    error:
+        include-message: always
